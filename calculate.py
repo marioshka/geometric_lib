@@ -21,24 +21,24 @@ import square
 - 'area'
 
 ## Глобальные переменные
-'''
+```
 figs = ['circle', 'square']
 funcs = ['perimeter', 'area']
 
 sizes = {}
-'''
+```
 
 ''' size — хранит количество параметров для каждой комбинации функции и фигуры.
 '''
 ## Функция calc
-'''
+```
 def calc(fig, func, size):
 	assert fig in figs
 	assert func in funcs
 
 	result = eval(f'{fig}.{func}(*{size})')
 	print(f'{func} of {fig} is {result}')
-'''
+```
 ### Параметры:
 '''- fig: строка, имя фигуры (например, 'circle' или 'square').
 - func: строка, имя функции (например, 'perimeter' или 'area').
@@ -48,7 +48,7 @@ def calc(fig, func, size):
 '''Функция проверяет, что фигура и функция допустимы, затем использует eval() для вызова соответствующей функции из импортированного модуля с переданными размерами. Результат выводится на экран.
 '''
 ## Основной блок программы
-'''
+```
 if __name__ == "__main__":
 	func = ''
 	fig = ''
@@ -64,7 +64,7 @@ if __name__ == "__main__":
 		size = list(map(int, input("Input figure sizes separated by space, 1 for circle and square\n").split(' ')))
 	
 	calc(fig, func, size)
-'''
+```
 ### Описание:
 '''1. **Ввод фигуры**: Программа запрашивает у пользователя ввести имя фигуры, пока не будет введено допустимое значение.
 2. **Ввод функции**: Аналогично, программа запрашивает функцию.
