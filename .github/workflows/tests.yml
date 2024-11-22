@@ -1,0 +1,49 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+      - release
+  pull_request:
+    branches:
+      - master
+      - release
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.13'
+
+      - name: Set environment variables
+        run: |
+          echo "NAME=Исаенкова Мария Сергеевна" >> $GITHUB_ENV
+          echo "GROUP=M3117" >> $GITHUB_ENV
+
+      - name: Print information
+        run: |
+          echo "ФИО: $NAME"
+          echo "Группа: $GROUP"
+          echo "Ник на GitHub: $GITHUB_ACTOR"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          pytest
+
+      - name: Check code style
+        run: |
+          pip install flake8
+          flake8 .
