@@ -4,16 +4,13 @@ on:
   push:
     branches:
       - main
-      - release
   pull_request:
     branches:
-      - master
-      - release
       - develop
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest, windows-latest
 
     steps:
       - name: Checkout code
