@@ -1,31 +1,37 @@
-name: Run Unit Tests for Geometric Library
+ name: Run Unit Tests for Geometric Library
 
 on:
   push:
     branches:
-      - main  
-       - release
+      - main 
+      - release
   pull_request:
     branches:
-      - main  
+      - main
       - release
       - develop
 
-
 jobs:
   test:
-    runs-on: ubuntu-latest
+        runs-on: ubuntu-latest
 
     steps:
       # Шаг 1: Клонирование репозитория
       - name: Checkout code
         uses: actions/checkout@v4
+        
+      - name: name
+        run: 
+        echo "ФИО: Исаенкова Мария Сергеевна"
+        echo "Номер группы: M3117"
+        echo "Ник на GitHub: marioshka"
+        
 
       # Шаг 2: Установка Python
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: 3.13
+          python-version: 3.13  
 
       # Шаг 3: Установка зависимостей (если требуется)
       - name: Install dependencies
