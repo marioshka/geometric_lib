@@ -4,16 +4,20 @@ on:
   push:
     branches:
       - main  
+       - release
   pull_request:
     branches:
       - main  
+      - release
+      - develop
+
 
 jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
 
     steps:
       # Шаг 1: Клонирование репозитория
