@@ -3,17 +3,17 @@ name: Run Unit Tests for Geometric Library
 on:
   push:
     branches:
-      - main  
+      - develop
   pull_request:
     branches:
-      - main  
+      - develop
 
 jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest]
 
     steps:
       # Шаг 1: Клонирование репозитория
@@ -24,7 +24,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: 3.9  
+          python-version: 3.13
 
       # Шаг 3: Установка зависимостей (если требуется)
       - name: Install dependencies
